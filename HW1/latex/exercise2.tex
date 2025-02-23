@@ -1,0 +1,35 @@
+\subsection*{(a)}
+We assume the setting to be as in the homework sheet and the latencies as in the slides. Let us assume that we desire to wash $n$ loads of laundry. Without parallelization, the time to complete this task is given by
+\[
+T_1 = n \cdot (30 + 40 + 20) \; \text{minutes} \; = 90n \; \text{minutes}.
+\]
+The next student always starts drying when the previous student finished drying. Hence, under optimal execution, $n$ students solve the task in
+\[
+T_n = 30 + n \cdot 40 + 20 \; \text{minutes}.
+\]
+Thus, the speedup is given as follows and grows asymptotically: 
+\[
+\frac{T_1}{T_n} =\frac{9n}{3 + 4n + 2} \rightarrow \frac{9}{4} = 2.25 \; \text{ as } n \to \infty.
+\]
+Hence, the parallel efficiency goes to zero,
+\[
+E = \frac{T_1}{n T_n} = \frac{9}{3 + 4n + 2} \rightarrow 0 \; \text{ as } \; n \to \infty.
+\]
+Since the parallel efficiency is not increasing but in fact decreasing and going to zero asymptotically, we can only conclude that the problem creator means speedup rather than parallel efficiency. We will continue with that assumption until the end of the exercise. The maximum speedup is (asymptotically) $2.25$.
+
+\subsection*{(b)}
+\FloatBarrier
+We obtain the following values for the speedup:
+
+
+\begin{center}
+\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|}
+No. of students & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\ 
+\hline 
+Speedup & $1$ & $1.384$ & $1.588$ & $1.714$ & $1.8$ & $1.862$ & $1.909$ & $1.945$ & $1.975$ & $2$ & $2.037$ \\ 
+\hline 
+\end{tabular}
+\end{center}
+
+With eleven students we are in the $10\%$ range, i.e. $\frac{2.25 - 2.037}{2.25} \leq 0.1$.
+

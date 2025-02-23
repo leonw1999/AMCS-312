@@ -1,0 +1,31 @@
+\subsection*{(a)}
+Following the lecture slides on the derivation we have the discrete mass conservation
+\begin{align*}
+\frac{\Delta x \Delta y \Delta z}{\Delta t} (\rho^{l + 1}_{ijk} - \rho^l_{ijk}) = & \; - \Delta y \Delta z\left[ (\rho u)|^l_{i + 1/2, jk} - (\rho u)|^l_{i - 1/2,jk} \right] \\
+& - \Delta x \Delta z \left[ (\rho v)|_{i, j + 1/2, k}^l - (\rho v)|_{i, j - 1/2, k} \right] \\
+& - \Delta x \Delta y \left[ (\rho w)|_{ij, k + 1/2}^l - (\rho w)|^l_{ij, k - 1/2} \right].
+\end{align*}
+To estimate the staggered quantities on the right hand side we average over the neighboring cells:
+\[
+(\rho u)|^l_{i + 1/2, jk} \approx \frac{1}{2} \left[( \rho u)|_{ijk}^l + (\rho u)|^l_{i + 1, jk} \right] \approx \frac{1}{2} \left[ \rho_{ijk}^l u_{ijk}^l + \rho^l_{i + 1, jk} u^l_{i + 1, jk} \right],
+\]
+and analogous for the other terms. Substituting this into the discrete mass conservation from above, we obtain
+\begin{align*}
+\frac{\Delta x \Delta y \Delta z}{\Delta t} (\rho^{l + 1}_{ijk} - \rho^l_{ijk}) = & \; - \frac{\Delta y \Delta z}{2}\left[ \rho^l_{i + 1, jk} u^l_{i + 1, jk} -  \rho^l_{i - 1, jk} u^l_{i - 1, jk} \right] \\
+& - \frac{\Delta x \Delta z}{2} \left[ \rho^l_{i, j + 1,k} v^l_{i, j + 1, k} -  \rho^l_{i, j - 1, k} v^l_{i, j - 1, k} \right] \\
+& - \frac{\Delta x \Delta y}{2} \left[ \rho^l_{ij, k + 1} w^l_{ij, k + 1} -  \rho^l_{ij, k - 1} w^l_{ij, k - 1} \right].
+\end{align*}
+Assuming that the density is known at time level $l$ we can write down the update step as
+\begin{align*}
+\rho^{l + 1}_{ijk} = & \; \rho^l_{ijk} - \frac{\Delta t}{2\Delta x}\left[ \rho^l_{i + 1, jk} u^l_{i + 1, jk} -  \rho^l_{i - 1, jk} u^l_{i - 1, jk} \right] \\
+& - \frac{\Delta t}{2\Delta y} \left[ \rho^l_{i, j + 1,k} v^l_{i, j + 1, k} -  \rho^l_{i, j - 1, k} v^l_{i, j - 1, k} \right] \\
+& - \frac{\Delta t}{2 \Delta z} \left[ \rho^l_{ij, k + 1} w^l_{ij, k + 1} -  \rho^l_{ij, k - 1} w^l_{ij, k - 1} \right].
+\end{align*}
+
+\subsection*{(b)} There are three types of special cases at the boundary. The first one is the corner case. Here, the cell to be updated is located in one of the four corners of the cube and three ghost cells need to be introduced to perform the time update, since only three of the six cells required to do the update are part of the domain.
+
+The second type is the edge case. Here, the cell to be updated is located in on of the twelve edges of the cubed domain but not in the corners. We need to introduce two ghost cells and density values at these to complete the update step.
+
+The third type is the side case. Here, the cell to be updated is located at one of the six sides of the cubed domain. We need to introduce one ghost cell and a density value for it to make the update step.
+
+There are different possibilities to set values for these ghost cells. They should come from the specific application as meaningful boundary condition. Without having the authority, since I am not a physicist nor an engineer, I could imagine that periodic boundary conditions could make sense here due to conservation of mass. Or one could set them to the same value as the closest cell inside the domain. Since $\rho$ is after all a continuous function, it makes sense that when $\Delta x$ is small, these values have to be close anyway.
