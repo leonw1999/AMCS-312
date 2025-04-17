@@ -1,1 +1,20 @@
 \subsection*{(a)}
+Let $A$ be the discrete laplacian as given on slide 22 from unit 2. We find
+\begin{align*}
+Ac = \left( \begin{matrix} 1 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ 1 \end{matrix} \right), \; Ar = \left( \begin{matrix} -4 \\ 0 \\ 0 \\ 0 \\ 0 \\ 0 \\ -4 \end{matrix} \right) , \; Ap & = \left( \begin{matrix} 14 \\ -2 \\ -2 \\ -2 \\ -2 \\ -2 \\ 14 \end{matrix} \right), \; As = \left( \begin{matrix} -1 \\ 0 \\ -1 \\ 0 \\ 1 \\ 0 \\ 1 \end{matrix} \right), \; Ao = \left( \begin{matrix} -3 \\ 4 \\ -4 \\ 4 \\ -4 \\ 4 \\ -3 \end{matrix} \right).
+\end{align*}
+The continuous laplace operator in one dimension is simply the second derivative. Hence, the discretization gives us an approximation of the second derivative, which is zero for the constant, zero for the ramp, constant for the parabola, nonsense for the step because this one is not differentiable at zero (not even continuous ...), and another ocsillatory function for an oscillatory function (second derivative of $\sin$ gives $\sin$ again). The scaling and the signs are a bit off above for the second derivatives. This is because to be truly a discretization of the continuous laplace operator, one needs a factor of $-\frac{1}{4}$ in front of the matrix $A$ on slide $22$.
+
+\subsection*{(b)}
+With $A$ the discrete Laplacian we have $A^{-1} l_4 = u_4$. This is because by definition of the inverse $A^{-1} A = I$, where $I$ denotes the identity matrix. Moreover,
+\[
+A^{-1} u_4 = A^{-1}_{:, 4} = \frac{1}{8} \left( \begin{matrix} 4 \\ 8 \\ 12 \\ 16 \\ 12 \\ 8 \\ 4 \end{matrix} \right).
+\]
+This is because $A^{-1} = A^{-1} I$. One could argue, that integrating a Dirac distribution gives a step function and integrating a step function gives a ramp.
+
+\subsection*{(c)}
+Applying the inverse of the laplacian to the constant gives
+\[
+A^{-1} c = \left( \begin{matrix} 3.5 \\ 6 \\ 7.5 \\ 8 \\ 7.5 \\ 6 \\ 3.5 \end{matrix} \right),
+\]
+which is a parabola. This makes sense because its second derivative is constant.

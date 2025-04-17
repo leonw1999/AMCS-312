@@ -1,0 +1,84 @@
+
+
+############# Ex4 a) 1D ###############
+
+
+on 17 point grid:  error |u-uexact|_inf = 1.11022e-16
+on 17 point grid:  error |u-uexact|_1 = 1.13104e-15
+on 17 point grid:  error |u-uexact|_2 = 3.13788e-16
+on 33 point grid:  error |u-uexact|_inf = 7.77156e-16
+on 33 point grid:  error |u-uexact|_1 = 1.36939e-14
+on 33 point grid:  error |u-uexact|_2 = 2.78339e-15
+on 65 point grid:  error |u-uexact|_inf = 4.19109e-15
+on 65 point grid:  error |u-uexact|_1 = 1.8373e-13
+on 65 point grid:  error |u-uexact|_2 = 2.48555e-14
+
+
+############# Ex4 a) 2D###############
+
+
+on 17 x 17 grid:  error |u-uexact|_inf = 5.23059e-08
+on 17 x 17 point grid:  error |u-uexact|_1 = 4.04717e-06
+on 17 x 17 point grid:  error |u-uexact|_2 = 3.28162e-07
+on 33 x 33 grid:  error |u-uexact|_inf = 2.39077e-07
+on 33 x 33 point grid:  error |u-uexact|_1 = 8.36272e-05
+on 33 x 33 point grid:  error |u-uexact|_2 = 3.39176e-06
+on 65 x 65 grid:  error |u-uexact|_inf = 9.99247e-08
+on 65 x 65 point grid:  error |u-uexact|_1 = 0.000103591
+on 65 x 65 point grid:  error |u-uexact|_2 = 2.10982e-06
+
+
+############# Ex4 a) 3D###############
+
+
+on 17 x 17 x 17 grid:  error |u-uexact|_inf = 6.44696e-08
+on 17 x 17 x 17 point grid:  error |u-uexact|_1 = 4.92628e-05
+on 17 x 17 x 17 point grid:  error |u-uexact|_2 = 1.16393e-06
+on 33 x 33 x 33 grid:  error |u-uexact|_inf = 4.60936e-08
+on 33 x 33 x 33 point grid:  error |u-uexact|_1 = 0.000272117
+on 33 x 33 x 33 point grid:  error |u-uexact|_2 = 2.12642e-06
+on 65 x 65 x 65 grid:  error |u-uexact|_inf = 2.84432e-08
+on 65 x 65 x 65 point grid:  error |u-uexact|_1 = 0.00112733
+on 65 x 65 x 65 point grid:  error |u-uexact|_2 = 3.10508e-06
+
+
+############# Ex4 b) 1D ###############
+
+
+on 17 point grid:  error |u-uexact|_inf = 0.250283
+on 17 point grid:  error |u-uexact|_1 = 1.67628
+on 17 point grid:  error |u-uexact|_2 = 0.505264
+on 33 point grid:  error |u-uexact|_inf = 0.058908
+on 33 point grid:  error |u-uexact|_1 = 0.791338
+on 33 point grid:  error |u-uexact|_2 = 0.168139
+on 65 point grid:  error |u-uexact|_inf = 0.01456
+on 65 point grid:  error |u-uexact|_1 = 0.3905
+on 65 point grid:  error |u-uexact|_2 = 0.0585748
+
+
+############# Ex4 b) 2D###############
+
+
+on 17 x 17 grid:  error |u-uexact|_inf = 0.118495
+on 17 x 17 point grid:  error |u-uexact|_1 = 8.23111
+on 17 x 17 point grid:  error |u-uexact|_2 = 0.673184
+on 33 x 33 grid:  error |u-uexact|_inf = 0.0279685
+on 33 x 33 point grid:  error |u-uexact|_1 = 8.27452
+on 33 x 33 point grid:  error |u-uexact|_2 = 0.328646
+on 65 x 65 grid:  error |u-uexact|_inf = 0.00650328
+on 65 x 65 point grid:  error |u-uexact|_1 = 8.26321
+on 65 x 65 point grid:  error |u-uexact|_2 = 0.165175
+
+
+############# Ex4 b) 3D###############
+
+
+on 17 x 17 x 17 grid:  error |u-uexact|_inf = 0.0794387
+on 17 x 17 x 17 point grid:  error |u-uexact|_1 = 39.7421
+on 17 x 17 x 17 point grid:  error |u-uexact|_2 = 0.991766
+on 33 x 33 x 33 grid:  error |u-uexact|_inf = 0.0207824
+on 33 x 33 x 33 point grid:  error |u-uexact|_1 = 82.6555
+on 33 x 33 x 33 point grid:  error |u-uexact|_2 = 0.703112
+on 65 x 65 x 65 grid:  error |u-uexact|_inf = 0.00511722
+on 65 x 65 x 65 point grid:  error |u-uexact|_1 = 183.559
+on 65 x 65 x 65 point grid:  error |u-uexact|_2 = 0.546814

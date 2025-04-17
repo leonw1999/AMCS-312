@@ -11,25 +11,24 @@ Thus, the speedup is given as follows and grows asymptotically:
 \[
 \frac{T_1}{T_n} =\frac{9n}{3 + 4n + 2} \rightarrow \frac{9}{4} = 2.25 \; \text{ as } n \to \infty.
 \]
-Hence, the parallel efficiency goes to zero,
+Independent of $n$, this is executed on three processors (washing, drying, folding). Hence, the parallel efficiency is given by,
 \[
-E = \frac{T_1}{n T_n} = \frac{9}{3 + 4n + 2} \rightarrow 0 \; \text{ as } \; n \to \infty.
+E = \frac{T_1}{3 T_n} = \frac{3n}{3 + 4n + 2} \rightarrow 0.75 \; \text{ as } \; n \to \infty.
 \]
-Since the parallel efficiency is not increasing but in fact decreasing and going to zero asymptotically, we can only conclude that the problem creator means speedup rather than parallel efficiency. We will continue with that assumption until the end of the exercise. The maximum speedup is (asymptotically) $2.25$.
+The maximum parallel efficiency is thus (asymptotically) $0.75$.
 
 \subsection*{(b)}
 \FloatBarrier
-We obtain the following values for the speedup:
-
+We obtain the following values for the parallel efficiency:
 
 \begin{center}
-\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|}
-No. of students & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 \\ 
+\begin{tabular}{c|c|c|c|c|c|c|c|c|c|c|c|c|}
+No. of students & 1 & 2 & 3 & 4 & 5 & 6 & 7 & 8 & 9 & 10 & 11 & 12 \\ 
 \hline 
-Speedup & $1$ & $1.384$ & $1.588$ & $1.714$ & $1.8$ & $1.862$ & $1.909$ & $1.945$ & $1.975$ & $2$ & $2.037$ \\ 
+Parallel efficiency & $0.333$ & $0.461$ & $0.529$ & $0.571$ & $0.6$ & $0.62$ & $0.636$ & $0.648$ & $0.658$ & $0.666$ & $0.673$ & $0.679$ \\ 
 \hline 
 \end{tabular}
 \end{center}
 
-With eleven students we are in the $10\%$ range, i.e. $\frac{2.25 - 2.037}{2.25} \leq 0.1$.
+With twelve students we are in the $10\%$ range, i.e. $\frac{0.75 - 0.679}{0.75} \leq 0.1$.
 

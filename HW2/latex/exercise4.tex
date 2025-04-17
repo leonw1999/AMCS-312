@@ -1,0 +1,180 @@
+ \subsection*{(a)}
+ \FloatBarrier
+ We compute the Laplacians:
+\begin{align*}
+& \textbf{1D:} \quad \hat{\varphi}(x) = x - x^2, \quad \Delta \hat{\varphi}(x) = -2\\
+& \textbf{2D:} \quad \hat{\varphi}(x, y) = (x - x^2)(y^2 - y), \quad
+\Delta \hat{\varphi}(x, y) = -2(y^2 - y) + 2(x - x^2) \\
+& \textbf{3D:} \quad \hat{\varphi}(x, y, z) = (x - x^2)(y^2 - y)(z - z^2)\\
+& \Delta \hat{\varphi}(x, y, z) = -2(y^2 - y)(z - z^2) + 2(x - x^2)(z - z^2) - 2(x - x^2)(y^2 - y)
+\end{align*}
+and need to set in the code $f = -\Delta \hat\varphi$ in each dimension as the boundary condition. By direct computation, we can show that with a uniform step size the discrete laplacian at $x \in [0, 1]$ is identical to the true continuous Laplacian. For instance, in 1D we find
+\begin{align*}
+\frac{\hat\varphi(x + h) - 2\hat\varphi(x) + \hat\varphi(x - h)}{h^2} & = \frac{x + h - (x + h)^2 -2(x - x^2) + x - h - (x - h)^2}{h^2} \\
+& = -2 \\
+& = \Delta \hat\varphi(x).
+\end{align*}
+Similar computations can be carried out for 2D and 3D. This means that the discretized equation is already an exact equation for the solution at the grid points. As a consequence, there is no truncation error and what we observe as a numerical error is the KSP residual after the last iteration. Hence, we get very good accuracy very fast as can be seen in \Cref{1D_err}, \Cref{2D_err}, and \Cref{3D_err}.
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Grid Size} & \textbf{Infinity Norm Error} \\
+\hline
+17 & $5.55112 \times 10^{-17}$ \\
+\hline
+33 & $1.94289 \times 10^{-16}$ \\
+\hline
+65 & $5.55112 \times 10^{-16}$ \\
+\hline
+\end{tabular}
+\caption{Numerical Error in Infinity Norm for 1D}
+\label{1D_err}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Grid Size} & \textbf{Infinity Norm Error} \\
+\hline
+17 $\times$ 17 & $5.23059 \times 10^{-8}$ \\
+\hline
+33 $\times$ 33 & $2.39077 \times 10^{-7}$ \\
+\hline
+65 $\times$ 65 & $9.99247 \times 10^{-8}$ \\
+\hline
+\end{tabular}
+\caption{Numerical Error in Infinity Norm for 2D}
+\label{2D_err}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+\textbf{Grid Size} & \textbf{Infinity Norm Error} \\
+\hline
+17 $\times$ 17 $\times$ 17 & $6.44696 \times 10^{-8}$ \\
+\hline
+33 $\times$ 33 $\times$ 33 & $4.60936 \times 10^{-8}$ \\
+\hline
+65 $\times$ 65 $\times$ 65 & $2.84432 \times 10^{-8}$ \\
+\hline
+\end{tabular}
+\caption{Numerical Error in Infinity Norm for 3D}
+\label{3D_err}
+\end{table}
+\FloatBarrier
+
+\subsection*{(b)}
+\FloatBarrier
+We compute first the Laplacians:
+\begin{align*}
+&\textbf{1D:} \quad \hat{\varphi}(x) = 3x + \sin(20x), \quad \Delta \hat{\varphi}(x) = -400\sin(20x) \\
+&\textbf{2D:} \quad \hat{\varphi}(x, y) = 3x + \sin(20xy), \quad \Delta \hat{\varphi}(x, y) = -400(x^2 + y^2)\sin(20xy) \\
+&\textbf{3D:} \quad \hat{\varphi}(x, y, z) = 3x + 3z + \sin(20xyz), \quad \Delta \hat{\varphi}(x, y, z) = -400(x^2y^2 + x^2z^2 + y^2z^2)\sin(20xyz)
+\end{align*}
+We adjust the code adding the boundary condition $g=\varphi$ and the new right-hand side $f = -\Delta \varphi$. \Cref{err_1D_b}, \Cref{err_2D_b}, and \Cref{err_3D_b} show the numerical error for different dimensions and grid sizes. \Cref{rate_1D_b}, and \Cref{rate_2D_b} show the convergence rates in the sense that the error of the respective grid is divided by the error at the next coarser grid. Since there is no coarser grid, the first row is empty. We expect that the numerical error shrinks by a factor of four every time we double the resolution. Since the quotients in the tables are about 4, we can confirm that we see the convergence rates.
+
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+Grid Size & Infinity Norm Error \\
+\hline
+17 & 0.250283 \\
+33 & 0.058908 \\
+65 & 0.01456 \\
+\hline
+\end{tabular}
+\caption{1D Numerical Errors in Infinity Norm}
+\label{err_1D_b}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+Grid Size & Infinity Norm Error \\
+\hline
+17x17 & 0.118495 \\
+33x33 & 0.0279685 \\
+65x65 & 0.00650328 \\
+\hline
+\end{tabular}
+\caption{2D Numerical Errors in Infinity Norm}
+\label{err_2D_b}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+Grid Size & Infinity Norm Error \\
+\hline
+17x17x17 & 0.0794387 \\
+33x33x33 & 0.0207824 \\
+65x65x65 & 0.00511722 \\
+\hline
+\end{tabular}
+\caption{3D Numerical Errors in Infinity Norm}
+\label{err_3D_b}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+Grid Size & Convergence Rate \\
+\hline
+17 &  \\
+33 & 4.247 \\
+65 & 4.044 \\
+\hline
+\end{tabular}
+\caption{1D Convergence Rates}
+\label{rate_1D_b}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+Grid Size & Convergence Rate \\
+\hline
+17x17 &  \\
+33x33 & 4.236 \\
+65x65 & 4.299 \\
+\hline
+\end{tabular}
+\caption{2D Convergence Rates}
+\label{rate_2D_b}
+\end{table}
+
+\begin{table}[h!]
+\centering
+\begin{tabular}{|c|c|}
+\hline
+Grid Size & Convergence Rate \\
+\hline
+17x17x17 &  \\
+33x33x33 & 3.819 \\
+65x65x65 & 4.062 \\
+\hline
+\end{tabular}
+\caption{3D Convergence Rates}
+\label{rate_2D_b}
+\end{table}
+
+
+
+
+
+
+
+\FloatBarrier
+
+

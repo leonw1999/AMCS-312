@@ -1,0 +1,16 @@
+\subsection*{(a)}
+Nine challenges:
+\begin{enumerate}
+\item Scalable multicore systems bring a growing cost of communication relative to computation. Especially across different nodes (multicore processors) the cost of data transfer becomes large
+\item Static distribution of tasks and adaptive multiscale algorithms introduce load imbalances from dynamically changing computation
+\item Since 32-bit (single precision) operations are at least twice as fast as 64-bit operations on modern architectures and have smaller storage and memory traffic, we need mixed precision algorithms to utilize heterogenous hardware effectively.
+\item Memory movement is increasingly expensive compared with the cost of computation, need to develop and study communication avoiding algorithms
+\item Numerical libraries need to be able to adapt to possibly heterogeneous environments to remain the same for the user but be consistent independent of scale and processor heterogeneity. (Auto-tuning)
+\item Due to scale and complexity of supercomputer architectures, faults become often and current restarting techniques are not scalable to highly parallel systems. New faults will occur  before the application can be restarted. (Fault Tolerance and Robustness)
+\item Energy consumption is becoming a problem. Depends on hardware and software.
+\item One needs to study sensitivity of high fidelity models to parameter variability and uncertainty.
+\item With more powerful machines the dimensions of the problems increase, but algorithms that work well for moderate dimensions might fail in subtle ways for larger problems. Reproducability independent of scale and number of cores is an open issue.
+\end{enumerate}
+
+\subsection*{(b)}
+In today's exascale environment challenge 6 becomes much more critical. Most restarting techniques are not scalable to highly parallel systems, so that a specific application might not be able to restart before the next fault occurs. This results in a program getting stuck. For algorithms in computing molecular dynamics this is a hard challenge because these computations are typically long-running and data intensive. An adaption could be to use redundant computing. If some redundant computations get lost due to a fault they don't need to be redone and the algorithm can restart quicker. Otherwise, one can let algorithms adaptively run on a dynamic number of cores, so that in case of a fault the algorithm can continue running after a unit of the computer is shut off. This would include ongoing error measurements and decisions on whether possibly corrupted data should be excluded combined with modular composition of the simulation.

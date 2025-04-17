@@ -1,0 +1,149 @@
+\documentclass[
+a4paper,
+]{article}
+\usepackage{lmodern}
+\usepackage[utf8]{inputenc}
+\usepackage[T1]{fontenc}
+
+
+\addtolength\jot{1ex}
+
+
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amsthm}
+\usepackage{listings}
+\usepackage{color}
+%\usepackage{german}
+%\usepackage{capt-of}
+\usepackage[font=small,
+figurewithin=section,labelsep=space]{caption}
+\usepackage{amssymb}
+\usepackage{tabto}
+\usepackage{graphicx}
+\usepackage{enumerate}
+\usepackage{cite}
+\usepackage{tikz-cd}
+\usepackage{faktor}
+\usepackage{verbatim}
+\usepackage{dsfont}
+\usepackage{svg}
+\usepackage{longtable}
+\usepackage{bbm}
+\usepackage{mathtools}
+%\usepackage[vcentermath]{youngtab}
+\usepackage[left=3cm, top=2cm, bottom=2.5cm, right=3cm]{geometry}
+\usepackage{appendix}
+\usepackage[english]{hyperref}
+\usepackage{cleveref}
+\usepackage{placeins}
+\usepackage{bm}
+\usepackage{array, diagbox}
+\setcounter{MaxMatrixCols}{20}
+
+\let\div\relax
+\DeclareMathOperator{\div}{div}
+\newcommand{\dd}[1]{\frac{\partial}{\partial #1}}
+\newcommand{\ddi}[2]{\frac{\partial #1}{\partial #2}}
+\newcommand{\ddtwo}[1]{\frac{\partial^2}{\partial #1^2}}
+\newcommand{\ddtwoi}[2]{\frac{\partial^2 #1}{\partial #2^2}}
+\newcommand{\ddtwod}[3]{\frac{\partial^2 #1}{\partial #2 \partial #3}}
+\DeclareMathOperator{\tr}{Tr}
+\newcommand{\kl}{\left(}
+\newcommand{\kr}{\right)}
+\newcommand{\el}{\left[}
+\newcommand{\er}{\right]}
+\newcommand{\R}{\mathbb{R}}
+\newcommand{\C}{\mathbb{C}}
+\newcommand{\Z}{\mathbb{Z}}
+\newcommand{\N}{\mathbb{N}}
+\newcommand{\cl}{\mathcal{L}}
+\newcommand{\cf}{\mathcal{F}}
+\newcommand{\cb}{\mathcal{B}}
+\newcommand{\Ocal}{\mathcal{O}}
+\newcommand{\simd}{\overset{\text{d}}{\sim}}
+\newcommand{\conp}{\xrightarrow{P}}
+\newcommand{\cond}{\xrightarrow{\text{d}}}
+\newcommand{\conas}{\xrightarrow{\text{f.s.}}}
+\newcommand{\conlp}{\xrightarrow{L^p}}
+\newcommand{\conlpx}[1]{\xrightarrow{L^{#1}}}
+\newcommand{\conv}{\xrightarrow{\text{v}}}
+\newcommand{\E}{\mathds{E}}
+\newcommand{\oksendal}{\O{}ksendal}
+\newcommand{\lO}{\mathcal{O}}
+\newcommand{\1}{\mathds{1}}
+\newcommand{\B}{\mathcal{B}}
+\newcommand{\A}{\mathcal{A}}
+\renewcommand{\bar}[1]{\overline{#1}}
+\newcommand{\intd}[1]{\, \mathrm{d} #1}
+\renewcommand{\d}{\mathrm{d}}
+\newcommand{\var}{\text{Var}}
+\newcommand{\Var}{\text{Var}}
+\newcommand{\Cov}{\text{Cov}}
+\newcommand{\TOL}{\text{TOL}}
+\newcommand{\cst}{\text{CST }}
+\newcommand{\norm}[1]{\left\lVert#1\right\rVert}
+\newcommand{\diff}[2]{\frac{\mathrm{d} #1}{\mathrm{d} #2}}
+\newcommand{\difftwo}[2]{\frac{\mathrm{d}^2 #1}{\mathrm{d} #2^2}}
+\newcommand{\figref}[1]{Fig. \ref{#1}}
+\let\P\relax
+\newcommand{\P}{\mathbb{P}}
+\newcommand{\eps}{\varepsilon}
+\newcommand{\p}{\mathfrak{p}}
+\newcommand{\diag}{\text{diag}}
+\newcommand{\sign}{\text{sign}}
+\newcommand{\tol}{\text{TOL}}
+
+\newtheorem{theorem}{Theorem}
+\newtheorem{corollary}{Corollary}[theorem]
+\newtheorem{lemma}[theorem]{Lemma}
+\graphicspath{ {Figure/} }
+
+\allowdisplaybreaks
+
+\setlength\parskip{0cm}
+\setlength\parindent{0cm}
+
+\begin{document}
+	
+	
+	\begin{flushright}
+		\begin{tabular}{|l|c|}
+			\hline
+			Leon Wilkosz & 193101 \\ \hline
+		\end{tabular}
+	\end{flushright}
+	\begin{center}
+		\Large \textbf{AMCS 312}\\ \medskip
+		\large\textbf{Homework 3}\\
+	\end{center}
+	\medskip
+	\hrule
+	\vspace{10pt}
+
+        \section*{Exercise 1}
+		\input{exercise1}
+		\null\newpage
+		
+        \section*{Exercise 2}
+		\input{exercise2}
+		\null\newpage
+		
+        \section*{Exercise 3}
+		\input{exercise3}
+		\null\newpage
+		
+        \section*{Exercise 4}
+        \input{exercise4}
+        \null\newpage
+        
+        \section*{Exercise 5}
+        \input{exercise5}
+        \null\newpage
+        
+        \section*{Exercise 6}
+        \input{exercise6}
+	    \null\newpage
+        
+        
+\end{document}
